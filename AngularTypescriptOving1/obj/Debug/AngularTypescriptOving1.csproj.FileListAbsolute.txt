@@ -1,0 +1,5 @@
+c:\git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\bin\AngularTypescriptOving1.dll.config
+c:\git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\bin\AngularTypescriptOving1.dll
+c:\git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\bin\AngularTypescriptOving1.pdb
+c:\git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\obj\Debug\AngularTypescriptOving1.dll
+c:\git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\obj\Debug\AngularTypescriptOving1.pdb
