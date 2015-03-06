@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Crime watcher</title>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
 </head>
 <body ng-app="crimeWatcherApp">
     <div class="container" id="mainBody">
         <h1>Crime watcher</h1>
-        <p>Test</p>
         <ul class="nav nav-pills" role="tablist">
             <li><a href="#/CrimeCategories">Crime categories </a></li>
             <li><a href="#/CrimesAtLocation">Crimes at location</a></li>
@@ -17,15 +17,18 @@
         </ul>
         <div ng-view></div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
 
     <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
-    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+    
+    <script src="App/app.js"></script>
 
-<script src="App/app.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </body>
 </html>

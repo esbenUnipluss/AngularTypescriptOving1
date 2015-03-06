@@ -9,6 +9,6 @@ angular.module('crimeWatcherApp.CrimeCategories', ['ngRoute'])
 }])
     .controller('CrimeCategoriesCtrl', ['$scope', function ($scope) {
 
-    
+ 
 
 }]);  

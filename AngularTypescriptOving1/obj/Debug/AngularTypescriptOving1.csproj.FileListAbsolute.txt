@@ -3,3 +3,4 @@ c:\git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\b
 c:\git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\bin\AngularTypescriptOving1.pdb
 c:\git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\obj\Debug\AngularTypescriptOving1.dll
 c:\git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\obj\Debug\AngularTypescriptOving1.pdb
+C:\Git\AngularTypescriptOving1\AngularTypescriptOving1\AngularTypescriptOving1\obj\Debug\AngularTypescriptOving1.csprojResolveAssemblyReference.cache
