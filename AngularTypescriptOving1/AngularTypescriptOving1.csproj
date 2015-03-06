@@ -921,6 +921,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="App\app.ts" />
     <TypeScriptCompile Include="App\Components\Datepicker.ts" />
+    <TypeScriptCompile Include="App\CrimeCategories\CrimeCategoryService.ts" />
     <TypeScriptCompile Include="App\CrimesWithNoLocation\CrimesWithNoLocation.ts" />
     <TypeScriptCompile Include="App\CrimesAtLocation\CrimesAtLocation.ts" />
     <TypeScriptCompile Include="App\CrimeCategories\CrimeCategories.ts" />

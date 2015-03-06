@@ -10,13 +10,12 @@
         $scope.dt = null;
     };
 
-    // Disable weekend selection
     $scope.disabled = function (date, mode) {
-        return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+        return false;
     };
 
     $scope.toggleMin = function () {
-        $scope.minDate = $scope.minDate ? null : new Date();
+        $scope.minDate =new Date(2000,1,1);
     };
     $scope.toggleMin();
 

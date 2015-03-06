@@ -17,12 +17,11 @@ angular.module('crimeWatcherApp.DatePicker', ['ngRoute', 'ui.bootstrap']).contro
     $scope.clear = function () {
         $scope.dt = null;
     };
-    // Disable weekend selection
     $scope.disabled = function (date, mode) {
-        return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+        return false;
     };
     $scope.toggleMin = function () {
-        $scope.minDate = $scope.minDate ? null : new Date();
+        $scope.minDate = new Date(2000, 1, 1);
     };
     $scope.toggleMin();
     $scope.open = function ($event) {
@@ -42,8 +41,26 @@ angular.module('crimeWatcherApp.CrimeCategories', ['ngRoute']).config(['$routePr
         templateUrl: 'App/CrimeCategories/CrimeCategories.html',
         controller: 'CrimeCategoriesCtrl'
     });
-}]).controller('CrimeCategoriesCtrl', ['$scope', function ($scope) {
+}]).controller('CrimeCategoriesCtrl', ['$scope', '$http', function ($scope, httpService) {
+    var today = new Date();
+    var curr_date = today.getDate();
+    var curr_month = today.getMonth();
+    var curr_year = today.getFullYear();
+    $scope.selectedDate = "" + curr_date + "." + curr_month + "." + curr_year;
+    $scope.getCrimeCategoryData = function () {
+        var array = $scope.selectedDate.split(".");
+        var date = new Date(array[2], array[1], array[0]);
+        var curr_date = date.getDate();
+        var curr_month = date.getMonth() + 1;
+        var curr_year = date.getFullYear();
+        console.log(curr_date);
+        console.log(curr_month);
+        console.log(curr_year);
+    };
 }]);
+app.service('CrimeCategoryService', function () {
+    this.selectedDate = new Date();
+});
 angular.module('crimeWatcherApp.CrimesAtLocation', ['ngRoute']).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/CrimesAtLocation', {
         templateUrl: 'App/CrimesAtLocation/CrimesAtLocation.html',
