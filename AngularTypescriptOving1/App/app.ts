@@ -1,8 +1,7 @@
 ﻿'use strict';
 // Declare app level module which depends on views, and components
 var app = angular.module('crimeWatcherApp', [
-    'ngRoute',
-    'crimeWatcherApp.DatePicker',
+    'ngRoute',    
     'crimeWatcherApp.CrimeCategories',    
     'crimeWatcherApp.CrimesWithNoLocation',
     
