@@ -1,38 +1,21 @@
 ﻿<h3>Crime categories </h3>
 
-
-
-<!--<div ng-controller="DatepickerDemoCtrl">
-    <h4>Select date for crime:</h4>
-    <div class="row">
-        <div class="col-md-6">
-            <p class="input-group">
-                <input type="text" class="form-control" datepicker-popup="dd.MM.yyyy" ng-model="dt" is-open="opened" min-date="2000-01-01" max-date="'2020-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"/>
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                </span>
-            </p>
-        </div>
-        <div class="col-md-6">
-            <button type="button" class="btn btn-default" ng-click="getCrimeCategoryData()">Get data</button>
-        </div>
-    </div>
-
-
-
-</div>-->
-
 <div ng-controller="CrimeCategoriesCtrl">
     <h4>Select date for crime:</h4>
     <div class="row">
         <div class="col-md-6">
             <p class="input-group">
-                <input type="text" ng-model="selectedDate" />
+                <input type="text" ng-model="selectedDate"/>
             </p>
         </div>
         <div class="col-md-4">
             <button type="button" class="btn btn-default" ng-click="getCrimeCategoryData()">Get data</button>
         </div>
     </div>
+
+    <ul>
+        <li ng-repeat="obj in CategoryData"> <a href="#/CrimesWithNoLocation?date={{selectedDate}}&category={{obj.url}}">{{obj.name}}</a></li>
+    </ul>
+
 </div>
 

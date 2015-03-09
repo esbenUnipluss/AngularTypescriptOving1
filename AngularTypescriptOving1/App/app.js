@@ -41,26 +41,43 @@ angular.module('crimeWatcherApp.CrimeCategories', ['ngRoute']).config(['$routePr
         templateUrl: 'App/CrimeCategories/CrimeCategories.html',
         controller: 'CrimeCategoriesCtrl'
     });
-}]).controller('CrimeCategoriesCtrl', ['$scope', '$http', function ($scope, httpService) {
+}]).controller('CrimeCategoriesCtrl', ['$scope', '$http', '$q', 'CrimeCategoryService', function ($scope, httpService, $q, CrimeCategoryService) {
     var today = new Date();
     var curr_date = today.getDate();
-    var curr_month = today.getMonth();
-    var curr_year = today.getFullYear();
+    var curr_month = today.getMonth() + 1;
+    var curr_year = today.getFullYear() - 2; //api er ikke oppdatert med 2015 enda, 
     $scope.selectedDate = "" + curr_date + "." + curr_month + "." + curr_year;
+    $scope.CategoryData = [];
     $scope.getCrimeCategoryData = function () {
         var array = $scope.selectedDate.split(".");
         var date = new Date(array[2], array[1], array[0]);
         var curr_date = date.getDate();
-        var curr_month = date.getMonth() + 1;
+        var curr_month = date.getMonth();
         var curr_year = date.getFullYear();
-        console.log(curr_date);
-        console.log(curr_month);
-        console.log(curr_year);
+        var dateString = curr_year + "-" + curr_month;
+        console.log(dateString);
+        CrimeCategoryService.GetCrimeCategories(dateString).then(function (result) {
+            $scope.CategoryData = result;
+            console.log(result);
+        });
     };
 }]);
-app.service('CrimeCategoryService', function () {
-    this.selectedDate = new Date();
-});
+app.service('CrimeCategoryService', ["$q", "$http", function ($q, $http) {
+    this.GetCrimeCategories = function (dateString) {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://data.police.uk/api/crime-categories',
+            params: 'date=' + dateString,
+        }).success(function (data) {
+            deferred.resolve(data);
+        }).error(function (error) {
+            alert("error");
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    };
+}]);
 angular.module('crimeWatcherApp.CrimesAtLocation', ['ngRoute']).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/CrimesAtLocation', {
         templateUrl: 'App/CrimesAtLocation/CrimesAtLocation.html',
