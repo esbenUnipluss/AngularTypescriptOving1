@@ -60,7 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\CrimesWithNoLocation\CrimesWithNoLocation.html" />
-    <Content Include="App\CrimesAtLocation\CrimesAtLocation.html" />
     <Content Include="App\CrimeCategories\CrimeCategories.html" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
@@ -923,8 +922,8 @@
     <TypeScriptCompile Include="App\Components\Datepicker.ts" />
     <TypeScriptCompile Include="App\CrimeCategories\CrimeCategoryService.ts" />
     <TypeScriptCompile Include="App\CrimesWithNoLocation\CrimesWithNoLocation.ts" />
-    <TypeScriptCompile Include="App\CrimesAtLocation\CrimesAtLocation.ts" />
     <TypeScriptCompile Include="App\CrimeCategories\CrimeCategories.ts" />
+    <TypeScriptCompile Include="App\CrimesWithNoLocation\CrimesWithNoLocationService.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />

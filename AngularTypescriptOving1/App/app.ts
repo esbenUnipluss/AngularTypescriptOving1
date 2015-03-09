@@ -3,8 +3,7 @@
 var app = angular.module('crimeWatcherApp', [
     'ngRoute',
     'crimeWatcherApp.DatePicker',
-    'crimeWatcherApp.CrimeCategories',
-    'crimeWatcherApp.CrimesAtLocation',
+    'crimeWatcherApp.CrimeCategories',    
     'crimeWatcherApp.CrimesWithNoLocation',
     
 

@@ -4,7 +4,6 @@ var app = angular.module('crimeWatcherApp', [
     'ngRoute',
     'crimeWatcherApp.DatePicker',
     'crimeWatcherApp.CrimeCategories',
-    'crimeWatcherApp.CrimesAtLocation',
     'crimeWatcherApp.CrimesWithNoLocation',
 ]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({ redirectTo: '/CrimeCategories' });
@@ -78,18 +77,44 @@ app.service('CrimeCategoryService', ["$q", "$http", function ($q, $http) {
         return deferred.promise;
     };
 }]);
-angular.module('crimeWatcherApp.CrimesAtLocation', ['ngRoute']).config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/CrimesAtLocation', {
-        templateUrl: 'App/CrimesAtLocation/CrimesAtLocation.html',
-        controller: 'CrimesAtLocationCtrl'
-    });
-}]).controller('CrimesAtLocationCtrl', [function () {
-}]);
 angular.module('crimeWatcherApp.CrimesWithNoLocation', ['ngRoute']).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/CrimesWithNoLocation', {
         templateUrl: 'App/CrimesWithNoLocation/CrimesWithNoLocation.html',
         controller: 'CrimesWithNoLocationCtrl'
     });
-}]).controller('CrimesWithNoLocationCtrl', [function () {
+}]).controller('CrimesWithNoLocationCtrl', ['$scope', '$http', '$q', '$location', 'CrimesWithNoLocationService', function ($scope, httpService, $q, $location, CrimesWithNoLocationService) {
+    $scope.crimes = [];
+    var queryParam = $location.search();
+    console.log();
+    var array = queryParam.date.split(".");
+    var date = new Date(array[2], array[1], array[0]);
+    var curr_month = date.getMonth();
+    var curr_year = date.getFullYear();
+    var dateString = curr_year + "-" + curr_month;
+    console.log(dateString);
+    var force = 'avon-and-somerset';
+    var category = queryParam.category;
+    $scope.force = "Avon and somerset";
+    $scope.category = category;
+    $scope.crimeDate = queryParam.date;
+    CrimesWithNoLocationService.GetCrimesWithNoLocation(dateString, category, force).then(function (result) {
+        $scope.crimes = result;
+        console.log(result);
+    });
+}]);
+app.service('CrimesWithNoLocationService', ["$q", "$http", function ($q, $http) {
+    this.GetCrimesWithNoLocation = function (dateString, category, force) {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://data.police.uk/api/crimes-no-location?category=' + category + '&force=' + force + '&date=' + dateString,
+        }).success(function (data) {
+            deferred.resolve(data);
+        }).error(function (error) {
+            alert("error");
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    };
 }]);
 //# sourceMappingURL=app.js.map
